@@ -11,6 +11,12 @@ class _CoffeeListPageState extends State<CoffeeListPage> {
   List<dynamic> coffeeData = [];
 
   @override
+  void initState() {
+    super.initState();
+    fetchData();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -18,10 +24,6 @@ class _CoffeeListPageState extends State<CoffeeListPage> {
       ),
       body: Column(
         children: [
-          ElevatedButton(
-            onPressed: fetchData,
-            child: Text('Test API'),
-          ),
           Expanded(
             child: ListView.builder(
               itemCount: coffeeData.length,
